@@ -1,100 +1,106 @@
 import React, { useEffect, useState } from "react";
-import debounce from 'lodash/debounce';
+import debounce from "lodash/debounce";
 import axios from "axios";
 import "../css/style.css";
 
 const LayoutPage = () => {
+  const baseURL = "https://dummyjson.com/products";
 
   const [productList, updateProductList] = useState([]);
   const [productCategory, updateproductCategory] = useState([]);
 
   useEffect(() => {
-    const requestProducts = axios.get('https://dummyjson.com/products');
-    const requestCategory = axios.get('https://dummyjson.com/products/categories');
+    const requestProducts = axios.get(baseURL);
+    const requestCategory = axios.get(baseURL + "/categories");
 
-    axios.all([requestProducts, requestCategory])
-      .then(axios.spread((responseProduct, responsecatgory) => {
-        updateProductList(responseProduct.data.products);
-        updateproductCategory(responsecatgory.data);
-      }))
+    axios
+      .all([requestProducts, requestCategory])
+      .then(
+        axios.spread((responseProduct, responsecatgory) => {
+          updateProductList(responseProduct.data.products);
+          updateproductCategory(responsecatgory.data);
+        })
+      )
       .catch((error) => {
         console.error(error);
-      })
+      });
   }, []);
 
   const changeCategory = (event) => {
-    const url = "https://dummyjson.com/products/category/" + event.target.value;
-    axios.get(url)
-      .then((response) => {
-        updateProductList(response.data.products);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-  }; 
-
-  const throttledSearch = debounce((searchCategory) => {
-   
-    const url = "https://dummyjson.com/products/search?q=" + searchCategory;
-    axios.get(url)
+    const url = baseURL + "/category/" + event.target.value;
+    axios
+      .get(url)
       .then((response) => {
         updateProductList(response.data.products);
       })
       .catch((error) => {
         console.error(error);
       });
+  };
 
+  const throttledSearch = debounce((searchCategory) => {
+    const url = baseURL + "/search?q=" + searchCategory;
+    axios
+      .get(url)
+      .then((response) => {
+        updateProductList(response.data.products);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, 1000);
 
   const handleSearchInput = (event) => {
     throttledSearch(event.target.value);
-    
-  }; 
+  };
 
   return (
     <div>
-    <div className="container">
-      <div className="header">
-        <div className="logo">
-          <span>
-            <span className="logo-color">M</span>oBoo
-            <span className="logo-color">M</span>
-          </span>
+      <div className="container">
+        <div className="header">
+          <div className="logo">
+            <span>
+              <span className="logo-color">M</span>oBoo
+              <span className="logo-color">M</span>
+            </span>
+          </div>
+          <div className="search">
+            <input
+              type="text"
+              placeholder="What do you want to buy today?"
+              onChange={handleSearchInput}
+            />
+            <i className="bi bi-search search-icon"></i>
+          </div>
+          <div className="menus">
+            <span>Store</span>
+            <span>Account</span>
+            <span>Wishlist</span>
+            <span>Basket</span>
+          </div>
         </div>
-        <div className="search">
-          <input type="text" placeholder="What do you want to buy today?" onChange={handleSearchInput} />
-          <i className="bi bi-search search-icon"></i>
+        <div className="section">
+          <h2>Welcome to MoBooM</h2>
+          <span>Search thousands of products, easy and quick delivery</span>
         </div>
-        <div className="menus">
-          <span>Store</span>
-          <span>Account</span>
-          <span>Wishlist</span>
-          <span>Basket</span>
+        <div className="category">
+          <select className="category-section" onChange={changeCategory}>
+            <option>Select any product</option>
+            {productCategory.map((category, index) => {
+              return <option key={index}>{category}</option>;
+            })}
+          </select>
         </div>
-      </div>
-      <div className="section">
-        <h2>Welcome to MoBooM</h2>
-        <span>Search thousands of products, easy and quick delivery</span>
-      </div>
-      <div className="category">
-        <select className="category-section" onChange={changeCategory}>
-          <option>Select any product</option>
-          {
-            productCategory.map((category, index) => {
-              return(
-                <option key={index}>{category}</option>
-              )
-            })
-          }
-        </select>
-      </div>
-      <div className="products">
-        {
-          productList.map((product, index) => {
-            return(
+        <div className="products">
+          {productList.map((product, index) => {
+            return (
               <div className="product" key={index}>
                 <div className="product-image">
-                  <img src={product.thumbnail} className="product-image" alt="" />
+                  <img
+                    src={product.thumbnail}
+                    className="product-image"
+                    alt=""
+                  />
                 </div>
                 <div className="product-content">
                   <div className="product-name">
@@ -104,19 +110,16 @@ const LayoutPage = () => {
                     <p>{product.description}</p>
                   </div>
                   <div className="product-price">
-                    <p>$ {product.price }</p>
+                    <p>$ {product.price}</p>
                   </div>
                   <div className="product-rating"></div>
                 </div>
               </div>
-            )
-          })
-        }
+            );
+          })}
+        </div>
       </div>
-      <div className="pagination"></div>
-   
-    </div>
-    <div className="footer">
+      <div className="footer">
         <div className="footer-section">
           <div className="footer-menus">
             <div className="company-info">
