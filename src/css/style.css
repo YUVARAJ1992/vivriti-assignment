@@ -2,3 +2,193 @@
     height: 100vh;
     box-sizing: border-box;
 }
+
+/* Styles */
+
+.container{
+    margin: 0;
+    padding: 0px 60px;
+}
+
+.header{
+    height: 50px;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 20%;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo span{
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.logo-color{
+    color: rgb(254, 39, 75);
+}
+
+.search{
+    width: 35%;
+    border: 1px solid;
+    padding: 0px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input{
+    width: 100%;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.search-icon{
+    font-size: 18px;
+    padding-left: 8px;
+}
+
+.menus{
+    width: 45%;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section{
+    height: 75px;
+    background: linear-gradient(63deg, rgba(57,57,57,1) 45%, rgb(213, 56, 56) 100%); 
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 15px;
+    margin: 20px 0px 0px 0px;
+}
+
+.category-section{
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.category{
+    padding: 15px 0px;
+}
+
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.product{
+    width: 250px;
+    height: auto;
+    border: 1px solid;
+}
+
+.product-image{
+    width: 100%;
+    height: 150px;
+    border: 1px solid;
+    box-sizing: border-box;
+    object-fit: cover;
+}
+
+.product-content{
+    height: 35%;
+    box-sizing: border-box;
+    border: 1px solid;
+}
+
+
+.pagination{
+    height: 30px;
+    border: 1px solid;
+    margin: 20px 0px;
+}
+
+.footer{
+    height: 45vh;
+    border: 1px solid;
+    margin: 25px 0px;
+    display: flex;
+    background-color: #fbfbfb;
+    padding: 0px 60px;
+}
+
+.footer-section{
+    width: 55%;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-menus{
+    border: 1px solid;
+    height: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+
+.copyrights{
+    height: 25%;
+    width: 100%;
+    border: 1px solid;
+}
+
+.footer-info{
+    width: 45%;
+    border: 1px solid;
+}
+
+.social-platforms{
+    height: 35%;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+}
+
+.social-links{
+    width: 75%;
+    border: 1px solid;
+}
+
+.platform{
+    width: 25%;
+    border: 1px solid;
+}
+
+.signup{
+    height: 35%;
+    border: 1px solid;
+}
+
+.card-list{
+    height: 30%;
+    border: 1px solid;
+}
+
+.space{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.m-btm-10{
+    margin-bottom: 10px;
+}
+
+.signup input{
+    font-size: 16px;
+    width: 90%;
+}
