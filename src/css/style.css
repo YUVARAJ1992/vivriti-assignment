@@ -12,14 +12,14 @@
 
 .header{
     height: 50px;
-    border: 1px solid;
+    /* border: 1px solid; */
     display: flex;
     justify-content: space-between;
 }
 
 .logo{
     width: 20%;
-    border: 1px solid;
+    /* border: 1px solid; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@
 
 .search{
     width: 35%;
-    border: 1px solid;
+    /* border: 1px solid; */
     padding: 0px 30px;
     display: flex;
     justify-content: center;
@@ -47,7 +47,7 @@
     width: 100%;
     font-size: 14px;
     padding: 5px 10px;
-    border-radius: 6px;
+    border-radius: 10px;
 }
 
 .search-icon{
@@ -57,7 +57,7 @@
 
 .menus{
     width: 45%;
-    border: 1px solid;
+    /* border: 1px solid; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -78,6 +78,7 @@
 .category-section{
     font-size: 16px;
     padding: 5px 10px;
+    border-radius: 10px;
 }
 
 .category{
@@ -119,22 +120,22 @@
 
 .footer{
     height: 45vh;
-    border: 1px solid;
+    /* border: 1px solid; */
     margin: 25px 0px;
     display: flex;
-    background-color: #fbfbfb;
+    background-color: #f5f5dc45;
     padding: 0px 60px;
 }
 
 .footer-section{
     width: 55%;
-    border: 1px solid;
+    /* border: 1px solid; */
     display: flex;
     flex-direction: column;
 }
 
 .footer-menus{
-    border: 1px solid;
+    /* border: 1px solid; */
     height: 75%;
     display: flex;
     justify-content: space-evenly;
@@ -144,39 +145,45 @@
 .copyrights{
     height: 25%;
     width: 100%;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .footer-info{
     width: 45%;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .social-platforms{
     height: 35%;
-    border: 1px solid;
+    /* border: 1px solid; */
     display: flex;
     align-items: center;
 }
 
 .social-links{
     width: 75%;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .platform{
     width: 25%;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .signup{
     height: 35%;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 .card-list{
-    height: 30%;
-    border: 1px solid;
+    height: 29%;
+    /* border: 1px solid; */
+}
+
+.card-image{
+    height: 30px;
+    padding: 2px;
+    margin: 2px
 }
 
 .space{

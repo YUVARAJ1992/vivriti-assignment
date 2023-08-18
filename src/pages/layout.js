@@ -185,6 +185,10 @@ const LayoutPage = () => {
           </div>
           <div className="card-list">
             <p>We Accept all type of Credit Cards</p>
+            <img src="https://cdn-icons-png.flaticon.com/128/147/147258.png" className="card-image" alt="" />
+            <img src="https://cdn-icons-png.flaticon.com/128/349/349221.png" className="card-image" alt="" />
+            <img src="https://cdn-icons-png.flaticon.com/128/9334/9334540.png" className="card-image" alt="" />
+            <img src="https://cdn-icons-png.flaticon.com/128/9334/9334616.png" className="card-image" alt="" />
           </div>
         </div>
         <div></div>
