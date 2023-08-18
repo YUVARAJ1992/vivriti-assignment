@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import debounce from "lodash/debounce";
 import axios from "axios";
+
+import ProductCategory from "../components/product-category";
 import "../css/style.css";
 
 const LayoutPage = () => {
@@ -84,8 +86,8 @@ const LayoutPage = () => {
           <span>Search thousands of products, easy and quick delivery</span>
         </div>
         <div className="category">
-          <select className="category-section" onChange={changeCategory}>
-            <option>Select any product</option>
+          <select className="category-section" onChange={changeCategory} defaultValue={""}>
+            <option disabled value={""}>Select any product</option>
             {productCategory.map((category, index) => {
               return <option key={index}>{category}</option>;
             })}
@@ -94,27 +96,7 @@ const LayoutPage = () => {
         <div className="products">
           {productList.map((product, index) => {
             return (
-              <div className="product" key={index}>
-                <div className="product-image">
-                  <img
-                    src={product.thumbnail}
-                    className="product-image"
-                    alt=""
-                  />
-                </div>
-                <div className="product-content">
-                  <div className="product-name">
-                    <h4>{product.title}</h4>
-                  </div>
-                  <div className="product-desc">
-                    <p>{product.description}</p>
-                  </div>
-                  <div className="product-price">
-                    <p>$ {product.price}</p>
-                  </div>
-                  <div className="product-rating"></div>
-                </div>
-              </div>
+              <ProductCategory {...product} key={index}></ProductCategory>
             );
           })}
         </div>
